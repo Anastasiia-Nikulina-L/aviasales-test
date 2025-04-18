@@ -1,12 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { HeaderWithLogo } from './components/header/headerWithLogo';
+import { Filter } from './components/bodyFilter/Filter';
 
 function App() {
   return (
     <div className="App">
       <HeaderWithLogo></HeaderWithLogo>
+      <Filter></Filter>
     </div>
   );
 }

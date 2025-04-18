@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import planeLogo from './planeLogo.svg'
 
-const HeaderWrapper = styled.div<{ $isExpanded: boolean }>`
+const HeaderWrapper = styled.div`
   width: 100%;
   height: 60px;
   padding: 50px 0; 
@@ -9,12 +9,13 @@ const HeaderWrapper = styled.div<{ $isExpanded: boolean }>`
   img {
     margin-left: auto;
     margin-right: auto;
+    filter: drop-shadow(0 8px 11px rgba(55, 104, 142, 0.25));
   }
 `;
 
 export const HeaderWithLogo = () => {
   return (
-    <HeaderWrapper $isExpanded={false}> 
+    <HeaderWrapper> 
       <img src={planeLogo} alt="Plane logo" />
     </HeaderWrapper>
   );

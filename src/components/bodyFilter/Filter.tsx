@@ -8,13 +8,11 @@ export const Filter = () => {
     console.log('Checkbox changed:', checked);
   };
 
-
+  //TODO добавить уникальные лейблы из списка всех билетов
   return (
     <FilterWrapper>
         <SideFilters>
           <div style={{  fontWeight: 600, letterSpacing: "0.5px", fontSize: "12px", lineHeight: "12px", padding: "0 20px 10px 20px" }}>КОЛИЧЕСТВО ПЕРЕСАДОК</div>
-
-          //TODO добавить уникальные лейблы из списка всех билетов
           <CheckboxWithLabel        
           label="Все" 
           initialChecked={false}

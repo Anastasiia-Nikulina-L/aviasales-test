@@ -1,7 +1,6 @@
-import React, {useState} from "react";
-
-import { FilterWrapper, SideFilters, CheckboxContainer, HiddenCheckbox, CustomCheckbox, Label } from "./styles";
-
+import { FilterWrapper, SideFilters,} from "./styles";
+import { CheckboxWithLabel } from "./SideFilters";
+import { FilterButtons } from "./FilterButtons";
 
 export const Filter = () => {
   const handleCheckboxChange = (checked: boolean) => {
@@ -12,7 +11,7 @@ export const Filter = () => {
   return (
     <FilterWrapper>
         <SideFilters>
-          <div style={{  fontWeight: 600, letterSpacing: "0.5px", fontSize: "12px", lineHeight: "12px", padding: "0 20px 10px 20px" }}>КОЛИЧЕСТВО ПЕРЕСАДОК</div>
+          <div style={{  fontWeight: 600, letterSpacing: "0.5px", lineHeight: "12px", padding: "0 20px 10px 20px" }}>КОЛИЧЕСТВО ПЕРЕСАДОК</div>
           <CheckboxWithLabel        
           label="Все" 
           initialChecked={false}
@@ -26,39 +25,9 @@ export const Filter = () => {
           initialChecked={false}
           onChange={handleCheckboxChange} />
         </SideFilters>
+        <>
+          <FilterButtons />
+        </>
     </FilterWrapper>
-  );
-};
-
-
-
-
-
-
-type CheckboxWithLabelProps = {
-  label: string;
-  initialChecked?: boolean;
-  onChange?: (checked: boolean) => void;
-};
-
-const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
-  label,
-  initialChecked = false,
-  onChange,
-}) => {
-  const [checked, setChecked] = useState(initialChecked);
-
-  const handleChange = () => {
-    const newChecked = !checked;
-    setChecked(newChecked);
-    onChange?.(newChecked);
-  };
-
-  return (
-    <CheckboxContainer onClick={handleChange}>
-      <HiddenCheckbox checked={checked} onChange={handleChange} />
-      <CustomCheckbox checked={checked} />
-      <Label>{label}</Label>
-    </CheckboxContainer>
   );
 };

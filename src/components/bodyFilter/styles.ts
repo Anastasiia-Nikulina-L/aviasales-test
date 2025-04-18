@@ -2,13 +2,12 @@ import styled from "styled-components";
 import checkIcon from "./checkIcon.svg" 
 
 export const FilterWrapper = styled.div`
-  max-width: 754px;
+  max-width: 756px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   gap: 20px;
   flex-wrap: wrap; 
-  align-items: center;
   justify-content: center;
 `;
 
@@ -57,4 +56,36 @@ export const Label = styled.label`
   cursor: pointer;
   user-select: none;
   font-size: 13px;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+`;
+
+export const StyledButton = styled.button<{ isActive: boolean }>`
+  width: 168px;
+  height: 50px;
+  background-color: ${({ isActive }) => (isActive ? 'rgba(33, 150, 243, 1)' : 'rgba(255, 255, 255, 1)')};
+  border: ${({ isActive }) => (isActive ? 'rgba(33, 150, 243, 1)' : '1px solid rgba(223, 229, 236, 1)')};
+  color: ${({ isActive }) => (isActive ? 'rgba(255, 255, 255, 1)' : 'rgba(74, 74, 74, 1)')};
+  cursor: pointer;
+  margin-left: -1px;
+  font-family: 'Open Sans', sans-serif;
+
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 12px;
+  font-size: 12px;
+
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+    margin-left: 0px;
+  }
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+  
+  &:hover {
+    background-color: ${({ isActive }) => (isActive ? 'rgba(33, 150, 243, 1)' : 'rgba(241, 252, 255, 1)')};
+  }
 `;

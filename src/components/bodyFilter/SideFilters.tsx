@@ -1,24 +1,21 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styles from './SideFilters.module.css'
+import { tickets } from '../../data/ticket';
 
 interface CheckboxWithLabelProps {
   label: string;
-  initialChecked?: boolean;
+  checked: boolean;
   onChange?: (checked: boolean) => void;
 };
 
 const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
   label,
-  initialChecked = false,
+  checked,
   onChange,
 }) => {
   
-  const [checked, setChecked] = useState(initialChecked);
-
   const handleChange = () => {
-    const newChecked = !checked;
-    setChecked(newChecked);
-    onChange?.(newChecked);
+    onChange ? onChange(!checked): console.log('не передан метод onChange');
   };
 
   return (
@@ -36,28 +33,79 @@ const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
 };
 
 interface SideFiltersProps {
-  onCheckboxChange: (checked: boolean) => void;
+  onFilterChange: (filters: number[]) => void;
 }
 
-export const SideFilters: React.FC<SideFiltersProps> = ({ onCheckboxChange }) => {
+export const SideFilters: React.FC<SideFiltersProps> = ({ onFilterChange }) => {
+  const [availableStops, setAvailableStops] = useState<number[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<number[]>([]);
+  const [allSelected, setAllSelected] = useState(true);
+
+  // Определяем доступные варианты пересадок
+  useEffect(() => {
+    const stopsCounts = new Set<number>();
+    
+    tickets.forEach(ticket => {
+      ticket.segments.forEach(segment => {
+        stopsCounts.add(segment.stops.length);
+      });
+    });
+
+    const sortedStops = Array.from(stopsCounts).sort((a, b) => a - b);
+    setAvailableStops(sortedStops);
+  }, []);
+
+  // Обработка изменения фильтров
+  useEffect(() => {
+    onFilterChange(allSelected ? [] : selectedFilters);
+  }, [selectedFilters, allSelected, onFilterChange]);
+
+  const handleAllChange = (checked: boolean) => {
+    setAllSelected(checked);
+    if (checked) {
+      setSelectedFilters([]);
+    }
+  };
+
+  const handleStopChange = (stops: number, checked: boolean) => {
+    if (checked) {
+      setSelectedFilters(prev => [...prev, stops]);
+      setAllSelected(false);
+    } else {
+      setSelectedFilters(prev => prev.filter(s => s !== stops));
+      // Если сняли последний чекбокс - автоматически выбираем "Все"
+      if (selectedFilters.length === 1 && selectedFilters.includes(stops)) {
+        setAllSelected(true);
+      }
+    }
+  };
+
+  // Маппинг названий для вариантов пересадок
+  const stopOptions = [
+    { value: 0, label: "Без пересадок" },
+    { value: 1, label: "1 пересадка" },
+    { value: 2, label: "2 пересадки" },
+    { value: 3, label: "3 пересадки" },
+  ];
+
   return (
     <div className={styles.sideFilters}>
       <div className={styles.filterTitle}>КОЛИЧЕСТВО ПЕРЕСАДОК</div>
       <CheckboxWithLabel
         label="Все"
-        initialChecked={false}
-        onChange={onCheckboxChange}
+        checked={allSelected}
+        onChange={handleAllChange}
       />
-      <CheckboxWithLabel
-        label="Без пересадок"
-        initialChecked={false}
-        onChange={onCheckboxChange}
-      />
-      <CheckboxWithLabel
-        label="1 пересадка"
-        initialChecked={false}
-        onChange={onCheckboxChange}
-      />
+      {stopOptions.map(option => (
+        availableStops.includes(option.value) && (
+          <CheckboxWithLabel
+            key={option.value}
+            label={option.label}
+            checked={selectedFilters.includes(option.value)}
+            onChange={(checked) => handleStopChange(option.value, checked)}
+          />
+        )
+      ))}
     </div>
   );
 };

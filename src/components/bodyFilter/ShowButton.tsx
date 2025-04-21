@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './ShowButton.module.css';
 
-export const ShowButton: React.FC = () => {
+interface ShowButtonProps {
+  onClick: () => void;
+}
+
+export const ShowButton: React.FC<ShowButtonProps> = ({ onClick }) => {
   return (
-    <button className={styles.showButton}>
+    <button className={styles.showButton} onClick={onClick}>
         ПОКАЗАТЬ ЕЩЕ 5 БИЛЕТОВ!
     </button>
   );

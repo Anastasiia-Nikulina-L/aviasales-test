@@ -41,7 +41,6 @@ export const SideFilters: React.FC<SideFiltersProps> = ({ onFilterChange }) => {
   const [selectedFilters, setSelectedFilters] = useState<number[]>([]);
   const [allSelected, setAllSelected] = useState(true);
 
-  // Определяем доступные варианты пересадок
   useEffect(() => {
     const stopsCounts = new Set<number>();
     
@@ -55,7 +54,6 @@ export const SideFilters: React.FC<SideFiltersProps> = ({ onFilterChange }) => {
     setAvailableStops(sortedStops);
   }, []);
 
-  // Обработка изменения фильтров
   useEffect(() => {
     onFilterChange(allSelected ? [] : selectedFilters);
   }, [selectedFilters, allSelected, onFilterChange]);
@@ -73,14 +71,12 @@ export const SideFilters: React.FC<SideFiltersProps> = ({ onFilterChange }) => {
       setAllSelected(false);
     } else {
       setSelectedFilters(prev => prev.filter(s => s !== stops));
-      // Если сняли последний чекбокс - автоматически выбираем "Все"
       if (selectedFilters.length === 1 && selectedFilters.includes(stops)) {
         setAllSelected(true);
       }
     }
   };
 
-  // Маппинг названий для вариантов пересадок
   const stopOptions = [
     { value: 0, label: "Без пересадок" },
     { value: 1, label: "1 пересадка" },

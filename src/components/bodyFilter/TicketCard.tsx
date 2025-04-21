@@ -8,12 +8,13 @@ interface TicketCardProps {
 }
 
 export const TicketCard: React.FC<TicketCardProps> = ({ticket}) => {
-    
+    const cdnUrl = `//pics.avs.io/99/36/${ticket.carrier}.png`;
+
     return (
         <div className={styles.container}>
             <div className={styles.header}>
                 <span className={styles.price}>{ticket.price.toLocaleString('ru-RU')} Р</span>
-                <img src={S7} alt='ticketLogo'></img>
+                <img src={cdnUrl} alt='ticketLogo'></img>
             </div>
             {ticket.segments.map((segment, index) => (
                 <div className={styles.segment}>

@@ -13,6 +13,7 @@ export  interface Ticket {
   }
 
 const cities = ["MOW", "LED", "KGD", "SVX", "KRR", "AER"];
+const carriers = ["S7", "SU", "LH", "TK"];
   
 const getRandomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
   
@@ -36,7 +37,7 @@ const generateSegment = (origin: string, destination: string): Segment => {
   
     return {
       price: getRandomInt(5000, 50000),
-      carrier: "S7",
+      carrier: carriers[getRandomInt(0, carriers.length-1)],
       segments: [
         generateSegment(origin, destination),
         generateSegment(destination, origin),

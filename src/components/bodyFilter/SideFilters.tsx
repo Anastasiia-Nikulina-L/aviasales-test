@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import styles from './SideFilters.module.css'
 
-type CheckboxWithLabelProps = {
+interface CheckboxWithLabelProps {
   label: string;
   initialChecked?: boolean;
   onChange?: (checked: boolean) => void;
 };
 
-export const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
+const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
   label,
   initialChecked = false,
   onChange,
@@ -35,7 +35,7 @@ export const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
   );
 };
 
-type SideFiltersProps = {
+interface SideFiltersProps {
   onCheckboxChange: (checked: boolean) => void;
 }
 

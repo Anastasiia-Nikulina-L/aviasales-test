@@ -47,7 +47,7 @@
   
 .customCheckboxChecked {
     border-color: rgba(33, 150, 243, 1);
-    background: center / 12px 8px no-repeat url(./checkIcon.svg);
+    background: center / 12px 8px no-repeat url(./img/checkIcon.svg);
 }
   
 .label {

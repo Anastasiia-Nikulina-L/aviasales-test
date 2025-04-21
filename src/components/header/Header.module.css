@@ -1,0 +1,11 @@
+.header {
+    width: 100%;
+    height: 60px;
+    padding: 50px 0; 
+}
+
+.header__logo {
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0 8px 11px rgba(55, 104, 142, 0.25));
+}

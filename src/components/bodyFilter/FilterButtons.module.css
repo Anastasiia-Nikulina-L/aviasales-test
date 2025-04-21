@@ -1,0 +1,43 @@
+.buttonContainer {
+    display: flex;
+    position: relative;
+  }
+  
+  .button {
+    width: 168px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid #dfe5ec;
+    color: #4a4a4a;
+    cursor: pointer;
+    margin-left: -1px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 12px;
+    font-size: 12px;
+  }
+  
+  .button:first-child {
+    border-radius: 5px 0 0 5px;
+    margin-left: 0px;
+  }
+  
+  .button:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+  
+  .button:hover {
+    background-color: #f1fcff;
+  }
+  
+  .button.active {
+    background-color: #2196f3;
+    border-color: #2196f3;
+    color: white;
+    z-index: 2;
+  }
+  
+  .button.active:hover {
+    background-color: #2196f3;
+  }

@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { ButtonContainer, StyledButton } from "./styles";
+import React, { useState } from 'react';
+import styles from './FilterButtons.module.css';
 
 export const FilterButtons: React.FC = () => {
   const [activeButton, setActiveButton] = useState<number>(0);
@@ -7,16 +7,16 @@ export const FilterButtons: React.FC = () => {
   const buttons = ['САМЫЙ ДЕШЕВЫЙ', 'САМЫЙ БЫСТРЫЙ', 'ОПТИМАЛЬНЫЙ'];
 
   return (
-    <ButtonContainer>
+    <div className={styles.buttonContainer}>
       {buttons.map((text, index) => (
-        <StyledButton
+        <button
           key={index}
-          isActive={activeButton === index}
+          className={`${styles.button} ${activeButton === index ? styles.active : ''}`}
           onClick={() => setActiveButton(index)}
         >
           {text}
-        </StyledButton>
+        </button>
       ))}
-    </ButtonContainer>
+    </div>
   );
 };

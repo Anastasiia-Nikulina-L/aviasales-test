@@ -1,5 +1,6 @@
-import { FilterWrapper, SideFilters,} from "./styles";
-import { CheckboxWithLabel } from "./SideFilters";
+import styles from './Filter.module.css';
+
+import { SideFilters } from "./SideFilters";
 import { FilterButtons } from "./FilterButtons";
 
 export const Filter = () => {
@@ -9,25 +10,11 @@ export const Filter = () => {
 
   //TODO добавить уникальные лейблы из списка всех билетов
   return (
-    <FilterWrapper>
-        <SideFilters>
-          <div style={{  fontWeight: 600, letterSpacing: "0.5px", lineHeight: "12px", padding: "0 20px 10px 20px" }}>КОЛИЧЕСТВО ПЕРЕСАДОК</div>
-          <CheckboxWithLabel        
-          label="Все" 
-          initialChecked={false}
-          onChange={handleCheckboxChange} />
-          <CheckboxWithLabel        
-          label="Без пересадок" 
-          initialChecked={false}
-          onChange={handleCheckboxChange} />
-          <CheckboxWithLabel        
-          label="1 пересадка" 
-          initialChecked={false}
-          onChange={handleCheckboxChange} />
-        </SideFilters>
+    <div className={styles.filterWrapper}>
+        <SideFilters onCheckboxChange={handleCheckboxChange}/>
         <>
           <FilterButtons />
         </>
-    </FilterWrapper>
+    </div>
   );
 };

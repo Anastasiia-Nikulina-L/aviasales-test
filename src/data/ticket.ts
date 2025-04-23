@@ -48,5 +48,3 @@ const generateSegment = (origin: string, destination: string): Segment => {
 
 
 export const tickets: Ticket[] = Array(15).fill(null).map(generateTicket);
-
-console.log(tickets);  

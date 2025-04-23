@@ -1,11 +1,11 @@
-import { HeaderWithLogo } from './components/header/headerWithLogo';
-import { Filter } from './components/bodyFilter/Filter';
+import { Header } from './ui/header/Header';
+import { Filter } from './components/bodyFilter/Filter/Filter';
 
 function App() {
   return (
     <div className="App">
-      <HeaderWithLogo></HeaderWithLogo>
-      <Filter></Filter>
+      <Header />
+      <Filter />
     </div>
   );
 }

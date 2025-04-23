@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './TicketCard.module.css'
-import {Ticket } from '../../data/ticket'
-import S7 from './img/S7 Logo.png'
+import {Ticket } from '../../../data/ticket'
 
 interface TicketCardProps {
     ticket: Ticket;
@@ -31,7 +30,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({ticket}) => {
                             {segment.stops.length === 0
                                 ? 'БЕЗ ПЕРЕСАДОК'
                                 : `${segment.stops.length} ПЕРЕСАД${
-                                segment.stops.length % 10 === 1 && segment.stops.length !== 11
+                                segment.stops.length === 1
                                     ? 'КА'
                                     : 'КИ'
                             }`}

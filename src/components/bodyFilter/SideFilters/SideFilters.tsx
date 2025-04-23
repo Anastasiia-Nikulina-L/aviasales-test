@@ -1,36 +1,7 @@
 import React, {useState, useEffect} from "react";
 import styles from './SideFilters.module.css'
-import { tickets } from '../../data/ticket';
-
-interface CheckboxWithLabelProps {
-  label: string;
-  checked: boolean;
-  onChange?: (checked: boolean) => void;
-};
-
-const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
-  label,
-  checked,
-  onChange,
-}) => {
-  
-  const handleChange = () => {
-    onChange ? onChange(!checked): console.log('не передан метод onChange');
-  };
-
-  return (
-    <div className={styles.checkboxContainer} onClick={handleChange}>
-      <input
-        type="checkbox"
-        className={styles.hiddenCheckbox}
-        checked={checked}
-        onChange={handleChange}
-      />
-      <div className={`${styles.customCheckbox} ${checked ? styles.customCheckboxChecked : ''}`} />
-      <span className={styles.label}>{label}</span>
-    </div>
-  );
-};
+import { tickets } from '../../../data/ticket';
+import { Checkbox } from "../../../ui/checkbox/Checkbox";
 
 interface SideFiltersProps {
   onFilterChange: (filters: number[]) => void;
@@ -87,14 +58,14 @@ export const SideFilters: React.FC<SideFiltersProps> = ({ onFilterChange }) => {
   return (
     <div className={styles.sideFilters}>
       <div className={styles.filterTitle}>КОЛИЧЕСТВО ПЕРЕСАДОК</div>
-      <CheckboxWithLabel
+      <Checkbox
         label="Все"
         checked={allSelected}
         onChange={handleAllChange}
       />
       {stopOptions.map(option => (
         availableStops.includes(option.value) && (
-          <CheckboxWithLabel
+          <Checkbox
             key={option.value}
             label={option.label}
             checked={selectedFilters.includes(option.value)}

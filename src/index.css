@@ -4,9 +4,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(243, 247, 250, 1);
+  background-color: rgb(243 247 250 / 100%);
   text-align: center;
-  color: rgba(74, 74, 74, 1);
+  color: rgb(74 74 74 / 100%);
   font-size: 12px;
 }
 

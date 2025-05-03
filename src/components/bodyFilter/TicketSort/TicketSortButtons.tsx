@@ -1,12 +1,12 @@
-import React from 'react';
-import { HorizontalTab } from '../../../ui/tabs/HorizontalTab/HorizontalTab';
+import React from "react";
+import { HorizontalTab } from "../../../ui/tabs/HorizontalTab/HorizontalTab";
 
-export type TicketSortType = 'cheapest' | 'fastest' | 'optimal';
+export type TicketSortType = "cheapest" | "fastest" | "optimal";
 
 const TICKET_SORT_OPTIONS = [
-  { type: 'cheapest', text: 'САМЫЙ ДЕШЕВЫЙ' },
-  { type: 'fastest', text: 'САМЫЙ БЫСТРЫЙ' },
-  { type: 'optimal', text: 'ОПТИМАЛЬНЫЙ' },
+  { type: "cheapest", text: "САМЫЙ ДЕШЕВЫЙ" },
+  { type: "fastest", text: "САМЫЙ БЫСТРЫЙ" },
+  { type: "optimal", text: "ОПТИМАЛЬНЫЙ" },
 ] as const;
 
 interface TicketSortButtonsProps {

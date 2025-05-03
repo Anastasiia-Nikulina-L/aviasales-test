@@ -1,13 +1,11 @@
 .BigBlueButton {
     width: 502px;
     height: 50px;
-    background-color: rgba(33, 150, 243, 1);
+    background-color: rgb(33 150 243 / 100%);
     cursor: pointer;
-
     border-radius: 5px;
     border: none;
-
-    color: rgba(255, 255, 255, 1);
+    color: rgb(255 255 255 / 100%);
     letter-spacing: 0.5px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;

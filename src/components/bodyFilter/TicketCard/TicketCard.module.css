@@ -5,7 +5,7 @@
     gap: 20px;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
   
 .header {
@@ -15,7 +15,7 @@
 }
   
 .price {
-    color: rgba(33, 150, 243, 1);
+    color: rgb(33 150 243 / 100%);
     line-height: 24px;
     font-size: 24px;
 }
@@ -26,7 +26,7 @@
     gap: 20px;
     align-items: start;
     text-align: left;
-    color: rgba(74, 74, 74, 1);
+    color: rgb(74 74 74 / 100%);
     line-height: 21px;
     font-size: 14px;
     font-weight: 600;
@@ -38,7 +38,7 @@
 }
   
 .cardTitle {
-    color: rgba(160, 176, 185, 1);
+    color: rgb(160 176 185 / 100%);
     line-height: 18px;
     font-size: 12px;
     letter-spacing: 0.5px;

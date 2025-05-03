@@ -7,7 +7,7 @@
 }
 
 .checkboxContainer:hover {
-  background-color: rgba(241, 252, 255, 1);
+  background-color: rgb(241 252 255 / 100%);
 }
 
 .hiddenCheckbox {
@@ -21,7 +21,7 @@
 .customCheckbox {
   width: 20px;
   height: 20px;
-  border: 1px solid rgba(154, 187, 206, 1);
+  border: 1px solid rgb(154 187 206 / 100%);
   border-radius: 2px;
   display: flex;
   justify-content: center;
@@ -30,8 +30,8 @@
 }
 
 .customCheckboxChecked {
-  border-color: rgba(33, 150, 243, 1);
-  background: center / 12px 8px no-repeat url(./checkIcon.svg);
+  border-color: rgb(33 150 243 / 100%);
+  background: center / 12px 8px no-repeat url("./checkIcon.svg");
 }
 
 .label {

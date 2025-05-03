@@ -1,4 +1,4 @@
-import styles from './HorizontalTab.module.css';
+import styles from "./HorizontalTab.module.css";
 
 export interface HorizontalTabOption<T extends string> {
   type: T;
@@ -22,7 +22,7 @@ export const HorizontalTab = <T extends string>({
         <button
           key={option.type}
           className={`${styles.button} ${
-            activeType === option.type ? styles.active : ''
+            activeType === option.type ? styles.active : ""
           }`}
           onClick={() => onTypeChange(option.type)}
         >

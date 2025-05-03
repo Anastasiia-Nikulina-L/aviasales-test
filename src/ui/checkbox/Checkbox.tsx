@@ -1,5 +1,5 @@
 import styles from "./Checkbox.module.css";
-
+import classNames from "classnames";
 interface CheckboxProps {
   label: string;
   checked: boolean;
@@ -23,7 +23,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         onChange={() => onChange?.(!checked)}
       />
       <div
-        className={`${styles.customCheckbox} ${checked ? styles.customCheckboxChecked : ""}`}
+        className={classNames(styles.customCheckbox, {
+          [styles.customCheckboxChecked]: checked,
+        })}
       />
       <span className={styles.label}>{label}</span>
     </div>

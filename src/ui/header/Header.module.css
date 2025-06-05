@@ -7,5 +7,5 @@
 .header__logo {
     margin-left: auto;
     margin-right: auto;
-    filter: drop-shadow(0 8px 11px rgba(55, 104, 142, 0.25));
+    filter: drop-shadow(0 8px 11px rgb(55 104 142 / 25%));
 }

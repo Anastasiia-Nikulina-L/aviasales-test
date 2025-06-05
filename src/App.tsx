@@ -1,5 +1,5 @@
-import { Header } from './ui/header/Header';
-import { Filter } from './components/bodyFilter/Filter/Filter';
+import { Header } from "./ui/header/Header";
+import { Filter } from "./components/bodyFilter/Filter/Filter";
 
 function App() {
   return (

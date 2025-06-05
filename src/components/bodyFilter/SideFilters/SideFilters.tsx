@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
-import styles from './SideFilters.module.css'
-import { tickets } from '../../../data/ticket';
+import React, { useState, useEffect } from "react";
+import styles from "./SideFilters.module.css";
+import { tickets } from "../../../data/ticket";
 import { Checkbox } from "../../../ui/checkbox/Checkbox";
 
 interface SideFiltersProps {
@@ -14,9 +14,9 @@ export const SideFilters: React.FC<SideFiltersProps> = ({ onFilterChange }) => {
 
   useEffect(() => {
     const stopsCounts = new Set<number>();
-    
-    tickets.forEach(ticket => {
-      ticket.segments.forEach(segment => {
+
+    tickets.forEach((ticket) => {
+      ticket.segments.forEach((segment) => {
         stopsCounts.add(segment.stops.length);
       });
     });
@@ -38,10 +38,10 @@ export const SideFilters: React.FC<SideFiltersProps> = ({ onFilterChange }) => {
 
   const handleStopChange = (stops: number, checked: boolean) => {
     if (checked) {
-      setSelectedFilters(prev => [...prev, stops]);
+      setSelectedFilters((prev) => [...prev, stops]);
       setAllSelected(false);
     } else {
-      setSelectedFilters(prev => prev.filter(s => s !== stops));
+      setSelectedFilters((prev) => prev.filter((s) => s !== stops));
       if (selectedFilters.length === 1 && selectedFilters.includes(stops)) {
         setAllSelected(true);
       }
@@ -58,21 +58,18 @@ export const SideFilters: React.FC<SideFiltersProps> = ({ onFilterChange }) => {
   return (
     <div className={styles.sideFilters}>
       <div className={styles.filterTitle}>КОЛИЧЕСТВО ПЕРЕСАДОК</div>
-      <Checkbox
-        label="Все"
-        checked={allSelected}
-        onChange={handleAllChange}
-      />
-      {stopOptions.map(option => (
-        availableStops.includes(option.value) && (
-          <Checkbox
-            key={option.value}
-            label={option.label}
-            checked={selectedFilters.includes(option.value)}
-            onChange={(checked) => handleStopChange(option.value, checked)}
-          />
-        )
-      ))}
+      <Checkbox label="Все" checked={allSelected} onChange={handleAllChange} />
+      {stopOptions.map(
+        (option) =>
+          availableStops.includes(option.value) && (
+            <Checkbox
+              key={option.value}
+              label={option.label}
+              checked={selectedFilters.includes(option.value)}
+              onChange={(checked) => handleStopChange(option.value, checked)}
+            />
+          ),
+      )}
     </div>
   );
 };

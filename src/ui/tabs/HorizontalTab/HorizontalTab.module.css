@@ -20,7 +20,7 @@
   
   .button:first-child {
     border-radius: 5px 0 0 5px;
-    margin-left: 0px;
+    margin-left: 0;
   }
   
   .button:last-child {
